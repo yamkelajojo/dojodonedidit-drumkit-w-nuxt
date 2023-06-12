@@ -1,14 +1,15 @@
 <template>
   <div class="body">
-    <h1>Dzowdzow
-    </h1>
+    <Player />
   </div>
 </template>
 
 <style scoped>
 .body {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background-image: url("assets/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 </style>
