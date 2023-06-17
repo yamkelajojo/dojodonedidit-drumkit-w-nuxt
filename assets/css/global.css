@@ -1,7 +1,18 @@
+@font-face {
+  font-family: "DefaultFont";
+  src: url("assets/fonts/Margarine-Regular.ttf");
+}
+
+@font-face {
+  font-family: "English";
+  src: url("assets/fonts/Canterbury.ttf");
+}
+
 * {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: "DefaultFont";
+  font-size: 24px;
 }
 
 .flex-cnt {
@@ -9,3 +20,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.wrapper {
+  max-width: 1000px;
+}
+
+h1 {
+  font-family: "English";
+  opacity: 0.855;
+  font-size: 50px;
+}
+
+/* # {
+  position: absolute;
+  top: 20%;
+} */

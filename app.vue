@@ -1,6 +1,7 @@
 <template>
   <div class="body">
-    <Player />
+    <Screen />
+    <Keyboard />
   </div>
 </template>
 
@@ -12,5 +13,6 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  position: relative;
 }
 </style>
