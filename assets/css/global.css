@@ -8,11 +8,20 @@
   src: url("assets/fonts/Canterbury.ttf");
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/Montserrat-Regular.ttf");
+}
+
 * {
   padding: 0;
   margin: 0;
   font-family: "DefaultFont";
   font-size: 24px;
+}
+
+.key {
+  font-family: "Montserrat";
 }
 
 .flex-cnt {

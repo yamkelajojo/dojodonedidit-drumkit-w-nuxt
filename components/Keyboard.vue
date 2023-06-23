@@ -46,43 +46,43 @@
     </ul>
     <ul class="cf" id="numbers">
       <li>
-        <a href="#" class="key c192"><b>~</b><b>`</b></a>
+        <a href="#" class="key c192"><b>`</b></a>
       </li>
       <li>
-        <a href="#" class="key c49"><b>!</b><b>1</b></a>
+        <a href="#" class="key c49"><b>1</b></a>
       </li>
       <li>
-        <a href="#" class="key c50"><b>@</b><b>2</b></a>
+        <a href="#" class="key c50"><b>2</b></a>
       </li>
       <li>
-        <a href="#" class="key c51"><b>#</b><b>3</b></a>
+        <a href="#" class="key c51"><b>3</b></a>
       </li>
       <li>
-        <a href="#" class="key c52"><b>$</b><span>4</span></a>
+        <a href="#" class="key c52"><span>4</span></a>
       </li>
       <li>
-        <a href="#" class="key c53"><b>%</b><span>5</span></a>
+        <a href="#" class="key c53"><span>5</span></a>
       </li>
       <li>
-        <a href="#" class="key c54"><b>^</b><span>6</span></a>
+        <a href="#" class="key c54"><span>6</span></a>
       </li>
       <li>
-        <a href="#" class="key c55"><b>&amp;</b><span>7</span></a>
+        <a href="#" class="key c55"><span>7</span></a>
       </li>
       <li>
-        <a href="#" class="key c56"><b>*</b><span>8</span></a>
+        <a href="#" class="key c56"><span>8</span></a>
       </li>
       <li>
-        <a href="#" class="key c57"><b>(</b><span>9</span></a>
+        <a href="#" class="key c57"><span>9</span></a>
       </li>
       <li>
-        <a href="#" class="key c48"><b>)</b><span>0</span></a>
+        <a href="#" class="key c48"><span>0</span></a>
       </li>
       <li>
-        <a href="#" class="key c189 alt"><b>_</b><span>-</span></a>
+        <a href="#" class="key c189 alt"><span>-</span></a>
       </li>
       <li>
-        <a href="#" class="key c187"><b>+</b><span>=</span></a>
+        <a href="#" class="key c187"><span>=</span></a>
       </li>
       <li>
         <a href="#" class="key c46" id="delete"><span>Delete</span></a>
@@ -123,13 +123,13 @@
         <a href="#" class="key c80"><span>p</span></a>
       </li>
       <li>
-        <a href="#" class="key c219 alt"><b>{</b><span>[</span></a>
+        <a href="#" class="key c219 alt"><span>[</span></a>
       </li>
       <li>
-        <a href="#" class="key c221 alt"><b>}</b><span>]</span></a>
+        <a href="#" class="key c221 alt"><span>]</span></a>
       </li>
       <li>
-        <a href="#" class="key c220 alt"><b>|</b><span>\</span></a>
+        <a href="#" class="key c220 alt"><span>\</span></a>
       </li>
     </ul>
     <ul class="cf" id="asdfg">
@@ -166,10 +166,10 @@
         <a href="#" class="key c76"><span>l</span></a>
       </li>
       <li>
-        <a href="#" class="key c186 alt"><b>:</b><span>;</span></a>
+        <a href="#" class="key c186 alt"><span>;</span></a>
       </li>
       <li>
-        <a href="#" class="key c222 alt"><b>"</b><span>'</span></a>
+        <a href="#" class="key c222 alt"><span>'</span></a>
       </li>
       <li>
         <a href="#" class="key c13 alt" id="enter"><span>return</span></a>
@@ -201,13 +201,13 @@
         <a href="#" class="key c77"><span>m</span></a>
       </li>
       <li>
-        <a href="#" class="key c188 alt"><b>&lt;</b><span>,</span></a>
+        <a href="#" class="key c188 alt"><span>,</span></a>
       </li>
       <li>
-        <a href="#" class="key c190 alt"><b>&gt;</b><span>.</span></a>
+        <a href="#" class="key c190 alt"><span>.</span></a>
       </li>
       <li>
-        <a href="#" class="key c191 alt"><b>?</b><span>/</span></a>
+        <a href="#" class="key c191 alt"><span>/</span></a>
       </li>
       <li>
         <a href="#" class="key c16 shiftright"><span>Shift</span></a>
@@ -258,12 +258,25 @@
 <script setup></script>
 
 <style scoped>
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/Montserrat-Regular.ttf");
+}
 body {
   background: #333;
 }
 
+#keyboard,
+#keyborad > * {
+  scale: 67%;
+  font-family: "Montserrat";
+}
+
 #keyboard {
   position: absolute;
+  left: 30%;
+  top: 62%;
+  transform: translate(-50%, -50%);
   margin: 50px auto;
   width: 794px;
   height: 315px;
@@ -282,6 +295,7 @@ body {
   -moz-box-shadow: inset 0 0 8px #bbb, 0 1px 0 #aaa, 0 4px 0 #bbb,
     0 10px 30px #111;
   box-shadow: inset 0 0 8px #bbb, 0 1px 0 #aaa, 0 4px 0 #bbb, 0 10px 30px #111;
+  transform: rotateX(40deg);
 }
 
 ul {
@@ -291,6 +305,7 @@ ul {
 }
 li {
   float: left;
+  /* transform: rotateX(40deg); */
 }
 
 .key {
@@ -312,6 +327,7 @@ li {
     0 2px 3px #333;
   box-shadow: inset 0 0 25px #333, 0 1px 0 #000, 0 2px 0 #222, 0 2px 3px #333;
   text-shadow: 0px -1px 0px #000;
+  /* transform: rotateX(40deg); */
 }
 
 .key:active,
@@ -625,4 +641,9 @@ ol {
 .cf {
   zoom: 1;
 }
+
+/* #keyboard {
+  transform: rotateX(40deg);
+
+} */
 </style>

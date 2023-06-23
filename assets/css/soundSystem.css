@@ -1,0 +1,33 @@
+.speaker {
+  position: absolute;
+  position: relative;
+  width: 230px;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: rgba(62, 229, 255, 0.379);
+}
+
+img {
+  height: auto;
+  width: 7.5rem;
+}
+
+#sub {
+  height: 6.9rem;
+  width: 6.9rem;
+  background: url("assets/images/speakers/graphic-black-and-white-library-sound-vector-speaker-fotor-20230618184437.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#tweeter {
+  height: 3.3rem;
+  width: 3.3rem;
+  background: url("assets/images/speakers/png-transparent-soft-dome-tweeter-loudspeaker-woofer-vifa-tweeter-angle-sound-voice-coil-fotor-20230618202412.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
