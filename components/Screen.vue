@@ -5,9 +5,9 @@
       <div
         v-for="drum in drums"
         :key="drum.id"
-        @mouseenter.self="toolTipOn = true"
-        @mousemove.self="followtip"
-        @mouseleave.self="toolTipOn = true"
+        @mouseenter="toolTipOn = true"
+        @mousemove="followtip($event, drum)"
+        @mouseleave="toolTipOn = false"
         id="instr"
         class="flex-cnt"
       >
@@ -15,8 +15,15 @@
         <p id="keyTitle" class="flex-cnt">{{ drum.keyTitle }}</p>
         <p id="soundName" class="flex-cnt">{{ drum.sound }}</p>
       </div>
-      <div id="tooltip" ref="tooltip" v-if="toolTipOn">Tooltip</div>
     </div>
+  </div>
+  <div id="tooltip" ref="tooltip" v-if="toolTipOn">
+    <div class="flex-cnt">
+      <Icon :name="icon" size="2.6rem" id="icon" />
+    </div>
+    <h5 style="font-size: 0.6rem">Category</h5>
+    <h5 id="category">{{ category }}</h5>
+    <p id="description">{{ description }}</p>
   </div>
 </template>
 
@@ -25,16 +32,22 @@ import { ref } from "vue";
 import getInstruments from "../composables/soundkeys";
 
 const drums = getInstruments();
-
-let toolTipOn = ref(true);
 const tooltip = ref(null);
+let toolTipOn = ref(false);
+let icon = ref(null);
+let category = ref();
+let description = ref();
 
-const followtip = (e) => {
-  var x = e.offsetX;
-  var y = e.offsetY;
+const followtip = (e, drum) => {
+  description.value = drum.description;
+  icon.value = drum.icon;
+  category = drum.category;
 
-  tooltip.value.style.left = x + "px";
-  tooltip.value.style.top = y + "px";
+  var x = e.pageX;
+  var y = e.pageY;
+
+  tooltip.value.style.left = x - 120 + "px";
+  tooltip.value.style.top = y - 280 + "px";
 };
 </script>
 
@@ -91,8 +104,23 @@ const followtip = (e) => {
 
 #tooltip {
   position: absolute;
+  flex-direction: column;
+  gap: 2rem;
   color: black;
   background-color: rgba(245, 245, 220, 0.704);
   border: 2px solid #3f3f3fd7;
+  border-radius: 0.3rem;
+  font-size: 0.2rem;
+  padding: 0.4rem;
+  width: 200px;
+  height: 220px;
+}
+
+#description {
+  font-size: 0.4rem;
+}
+
+#category {
+  font-size: 0.4rem;
 }
 </style>

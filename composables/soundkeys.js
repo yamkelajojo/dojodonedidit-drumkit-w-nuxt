@@ -7,7 +7,7 @@ export default function getInstruments() {
       url: "assets/audio/Clap.wav",
       icon: "twemoji:clapping-hands",
       description:
-        "It serves as an accent or emphasis, adding a sharp and crisp sound to the rhythm.The clap is typically placed on the second and fourth beats of a measure, creating a sense of groove and driving the beat forward. It often acts as a complement to the kick drum, providing a rhythmic contrast and enhancing the overall impact of the beat",
+        "Serves as an accent or emphasis, adding a sharp and crisp sound to the rhythm. Typically placed on the 2nd and 4th beats of a measure.",
       category: "Percussion",
     },
     {
@@ -17,7 +17,7 @@ export default function getInstruments() {
       url: "assets/audio/HiHat.wav",
       icon: "twemoji:chopsticks",
       description:
-        "It serves as an accent or emphasis, adding a sharp and crisp sound to the rhythm.The clap is typically placed on the second and fourth beats of a measure, creating a sense of groove and driving the beat forward. It often acts as a complement to the kick drum, providing a rhythmic contrast and enhancing the overall impact of the beat",
+        "Provides a continuous, tight, and metallic sound. The hi-hat plays a crucial role in maintaining the rhythm and adding a sense of movement. It is typically played in a continuous pattern throughout the beat, alternating between open and closed positions",
       category: "Percussion",
     },
     {
@@ -27,7 +27,7 @@ export default function getInstruments() {
       url: "assets/audio/Kick.wav",
       icon: "twemoji:hiking-boot",
       description:
-        "is the foundational element of the beat, providing a deep and booming bass sound. It delivers the rhythmic pulse and drives the entire track. The kick is typically placed on the first beat of each measure, establishing the core rhythm and groove.",
+        "Is the foundational element of the beat, providing a deep and booming bass sound. It delivers the rhythmic pulse and drives the entire track. The kick is typically placed on the first beat of each measure, establishing the core rhythm and groove.",
     },
     {
       keyTitle: "F",
@@ -46,7 +46,7 @@ export default function getInstruments() {
       url: "assets/audio/808.wav",
       icon: "twemoji:bomb",
       description:
-        "produces a distinct low-frequency punch, often associated with sub-bass tones produces a distinct low-frequency punch, often associated with sub-bass tones",
+        "Produces a distinct low-frequency punch, often associated with sub-bass tones produces a distinct low-frequency punch, often associated with sub-bass tones",
       category: "Drums",
     },
     {
@@ -56,7 +56,7 @@ export default function getInstruments() {
       url: "assets/audio/Rim.wav",
       icon: "twemoji:wheel",
       description:
-        " produces a sharp and metallic click sound. It is often used to add a sharp accent or a subtle layer of texture to the beat. The rim is typically placed on off-beats or used in specific rhythmic patterns to create syncopation and add interest.",
+        "Produces a sharp and metallic click sound. It is often used to add a sharp accent or a subtle layer of texture to the beat. The rim is typically placed on off-beats or used in specific rhythmic patterns to create syncopation and add interest.",
       category: "Percussion",
     },
     {
@@ -66,7 +66,7 @@ export default function getInstruments() {
       url: "assets/audio/Snare.wav",
       icon: "twemoji:badminton",
       description:
-        "The snare drum provides a sharp and crisp sound. It serves as a key element of the backbeat, usually played on the second and fourth beats of a measure. The snare adds groove, impact, and defines the overall rhythm of the track",
+        "Provides a sharp and crisp sound. It serves as a key element of the backbeat, usually played on the second and fourth beats of a measure. The snare adds groove, impact, and defines the overall rhythm of the track",
       category: "Drums",
     },
     {
@@ -76,7 +76,7 @@ export default function getInstruments() {
       url: "assets/audio/Tom.wav",
       icon: "twemoji:long-drum",
       description:
-        "Are medium to high-pitched drums that produce melodic and resonant tones. They are used to add fills, transitions, and dynamics to the beat. Toms are often played in ascending or descending patterns, creating rhythmic interest and variation",
+        "Medium to high-pitched drums that produce melodic and resonant tones. They are used to add fills, transitions, and dynamics to the beat. Toms are often played in ascending or descending patterns, creating rhythmic interest and variation",
       category: "Drums",
     },
     {
@@ -86,7 +86,7 @@ export default function getInstruments() {
       url: "assets/audio/Tink.wav",
       icon: "twemoji:triangular-ruler",
       description:
-        "is a percussive instrument that produces a high-pitched and shimmering sound. It is commonly used to add accents, subtle touches, and a touch of brightness to the beat. The triangle is often played sparingly, adding a delicate and ethereal quality",
+        "Is a percussive instrument that produces a high-pitched and shimmering sound. It is commonly used to add accents, subtle touches, and a touch of brightness to the beat. The triangle is often played sparingly, adding a delicate and ethereal quality",
       category: "Percussion",
     },
   ];
