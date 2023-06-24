@@ -2,11 +2,20 @@
   <div id="screen" class="flex-cnt">
     <h1>Dojo's Drum Kit</h1>
     <div id="player" class="flex-cnt">
-      <div v-for="drum in drums" :key="drum.id" id="instr" class="flex-cnt">
+      <div
+        v-for="drum in drums"
+        :key="drum.id"
+        @mouseenter.self="toolTipOn = true"
+        @mousemove.self="followtip"
+        @mouseleave.self="toolTipOn = true"
+        id="instr"
+        class="flex-cnt"
+      >
         <Icon :name="drum.icon" size="1.1rem" id="icon" />
         <p id="keyTitle" class="flex-cnt">{{ drum.keyTitle }}</p>
         <p id="soundName" class="flex-cnt">{{ drum.sound }}</p>
       </div>
+      <div id="tooltip" ref="tooltip" v-if="toolTipOn">Tooltip</div>
     </div>
   </div>
 </template>
@@ -16,6 +25,17 @@ import { ref } from "vue";
 import getInstruments from "../composables/soundkeys";
 
 const drums = getInstruments();
+
+let toolTipOn = ref(true);
+const tooltip = ref(null);
+
+const followtip = (e) => {
+  var x = e.offsetX;
+  var y = e.offsetY;
+
+  tooltip.value.style.left = x + "px";
+  tooltip.value.style.top = y + "px";
+};
 </script>
 
 <style scoped>
@@ -67,5 +87,12 @@ const drums = getInstruments();
   background-color: rgba(245, 245, 220, 0.704);
   border: 2px solid #3f3f3fd7;
   border-radius: 0.3rem;
+}
+
+#tooltip {
+  position: absolute;
+  color: black;
+  background-color: rgba(245, 245, 220, 0.704);
+  border: 2px solid #3f3f3fd7;
 }
 </style>
