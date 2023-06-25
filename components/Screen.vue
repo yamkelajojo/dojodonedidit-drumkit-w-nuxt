@@ -31,7 +31,7 @@
 import { ref } from "vue";
 import getInstruments from "../composables/soundkeys";
 
-const drums = getInstruments();
+const { drums } = defineProps(["drums"]);
 const tooltip = ref(null);
 let toolTipOn = ref(false);
 let icon = ref(null);

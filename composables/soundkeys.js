@@ -1,8 +1,8 @@
 export default function getInstruments() {
   const drums = [
     {
-      keyTitle: "A",
-      id: "65",
+      keyTitle: "a",
+      id: "1",
       sound: "Clap",
       url: "assets/audio/Clap.wav",
       icon: "twemoji:clapping-hands",
@@ -11,8 +11,8 @@ export default function getInstruments() {
       category: "Percussion",
     },
     {
-      keyTitle: "S",
-      id: "83",
+      keyTitle: "s",
+      id: "2",
       sound: "HiHat",
       url: "assets/audio/HiHat.wav",
       icon: "twemoji:chopsticks",
@@ -21,17 +21,18 @@ export default function getInstruments() {
       category: "Percussion",
     },
     {
-      keyTitle: "D",
-      id: "68",
+      keyTitle: "d",
+      id: "3",
       sound: "Kick",
       url: "assets/audio/Kick.wav",
       icon: "twemoji:hiking-boot",
       description:
         "Is the foundational element of the beat, providing a deep and booming bass sound. It delivers the rhythmic pulse and drives the entire track. The kick is typically placed on the first beat of each measure, establishing the core rhythm and groove.",
+      category: "Drums",
     },
     {
-      keyTitle: "F",
-      id: "70",
+      keyTitle: "f",
+      id: "4",
       sound: "Open Hat",
       url: "assets/audio/OpenHat.wav",
       icon: "twemoji:ice-skate",
@@ -40,8 +41,8 @@ export default function getInstruments() {
       category: "Percussion",
     },
     {
-      keyTitle: "G",
-      id: "71",
+      keyTitle: "g",
+      id: "5",
       sound: "Boom",
       url: "assets/audio/808.wav",
       icon: "twemoji:bomb",
@@ -50,8 +51,8 @@ export default function getInstruments() {
       category: "Drums",
     },
     {
-      keyTitle: "H",
-      id: "72",
+      keyTitle: "h",
+      id: "6",
       sound: "Rim",
       url: "assets/audio/Rim.wav",
       icon: "twemoji:wheel",
@@ -60,8 +61,8 @@ export default function getInstruments() {
       category: "Percussion",
     },
     {
-      keyTitle: "J",
-      id: "74",
+      keyTitle: "j",
+      id: "7",
       sound: "Snare",
       url: "assets/audio/Snare.wav",
       icon: "twemoji:badminton",
@@ -70,8 +71,8 @@ export default function getInstruments() {
       category: "Drums",
     },
     {
-      keyTitle: "K",
-      id: "75",
+      keyTitle: "k",
+      id: "8",
       sound: "Tom",
       url: "assets/audio/Tom.wav",
       icon: "twemoji:long-drum",
@@ -80,8 +81,8 @@ export default function getInstruments() {
       category: "Drums",
     },
     {
-      keyTitle: "L",
-      id: "76",
+      keyTitle: "l",
+      id: "9",
       sound: "Tink",
       url: "assets/audio/Tink.wav",
       icon: "twemoji:triangular-ruler",
