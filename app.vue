@@ -4,14 +4,13 @@
     <Screen :drums="drums" />
     <!-- <Keyboard /> -->
   </div>
+  <audio
+    v-for="drum in drums"
+    :key="drum.id"
+    :data-key="drum.keyTitle"
+    :src="drum.url"
+  ></audio>
 </template>
-
-<audio
-  :v-for="drum in drums"
-  :key="drum.id"
-  :data-key="drum.keyTitle"
-  :src="drum.url"
-></audio>
 
 <script setup>
 import { ref } from "vue";
@@ -20,11 +19,11 @@ import getInstruments from "/composables/soundkeys";
 const drums = getInstruments();
 
 const handleKeyDown = (e) => {
-  const audios = document.getElementsByTagName("audio");
-  console.log(audios);
-  console.log(e.key);
   const audio = document.querySelector(`audio[data-key="${e.key}"]`);
-  console.log(audio);
+
+  if (!audio) return; //stops function from running all together
+  audio.currentTime = 0; //rewind it to the start before it starts playing
+  audio.play();
 };
 
 //onMounted hook is used to ensure that the window is ready before accessing its value and attaching the keydown event listener
@@ -32,7 +31,6 @@ onMounted(() => {
   window.addEventListener("keydown", handleKeyDown);
 });
 </script>
-do
 
 <style scoped>
 #studio {

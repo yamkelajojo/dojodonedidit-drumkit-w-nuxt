@@ -12,7 +12,7 @@
         class="flex-cnt"
       >
         <Icon :name="drum.icon" size="1.1rem" id="icon" />
-        <p id="keyTitle" class="flex-cnt">{{ drum.keyTitle }}</p>
+        <p id="keyTitle" class="flex-cnt">{{ drum.keyTitle.toUpperCase() }}</p>
         <p id="soundName" class="flex-cnt">{{ drum.sound }}</p>
       </div>
     </div>
