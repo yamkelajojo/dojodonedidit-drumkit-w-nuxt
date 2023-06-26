@@ -2,6 +2,7 @@
   <div id="studio" ref="studio">
     <!-- <LeftSpeaker /> -->
     <Screen :drums="drums" />
+    <Keyz :drums="drums" />
     <!-- <Keyboard /> -->
   </div>
   <audio

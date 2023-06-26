@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["nuxt-icon"],
   css: ["assets/css/global.css", "assets/css/soundSystem.css"],
+
   app: {
     head: {
       title: "Dojo Drum Kit",
