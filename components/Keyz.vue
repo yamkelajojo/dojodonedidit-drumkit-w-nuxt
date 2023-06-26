@@ -1,7 +1,7 @@
 <template>
   <div class="keyboard">
     <div v-for="drum in drums" :key="drum.id" class="button">
-      <p>{{ drum.keyTitle }}</p>
+      <p>{{ drum.keyTitle.toUpperCase() }}</p>
     </div>
   </div>
 </template>
@@ -11,14 +11,24 @@ const { drums } = defineProps(["drums"]);
 </script>
 
 <style scoped>
+.keyboard,
+.keyboard > * {
+  scale: 0.7;
+  /* opacity: 0.95; */
+}
+
 .keyboard {
   display: flex;
+  position: absolute;
+  top: 80%;
+  left: 20.5%;
+  /* background-color: #000; */
 }
 
 .button {
   position: relative;
   display: inline-block;
-  margin: 20px;
+  margin: 10px;
 }
 
 .button p {
@@ -37,9 +47,9 @@ const { drums } = defineProps(["drums"]);
   text-shadow: 0px 1px 0px #000;
   filter: dropshadow(color=#000, offx=0px, offy=1px);
 
-  -webkit-box-shadow: inset 0 1px 0 #ffe5c4, 0 10px 0 #915100;
-  -moz-box-shadow: inset 0 1px 0 #ffe5c4, 0 10px 0 #915100;
-  box-shadow: inset 0 1px 0 #ffe5c4, 0 10px 0 #915100;
+  -webkit-box-shadow: inset 3px 0.5px 0 #ffe5c4, 0 10px 0 #915100;
+  -moz-box-shadow: inset 3px 0.5px 0 #ffe5c4, 0 10px 0 #915100;
+  box-shadow: inset 3px 0.5px 0 #ffe5c4, 0 10px 0 #915100;
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -50,9 +60,9 @@ const { drums } = defineProps(["drums"]);
   top: 10px;
   background-color: #f78900;
 
-  -webkit-box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
-  -moz-box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3pxpx 0 #915100;
-  box-shadow: inset 0 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+  -webkit-box-shadow: inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+  -moz-box-shadow: inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+  box-shadow: inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
 }
 
 .button:after {
@@ -65,8 +75,13 @@ const { drums } = defineProps(["drums"]);
   left: -4px;
   z-index: -1;
   background-color: #2b1800;
+
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+
+  /* -webkit-box-shadow: inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+  -moz-box-shadow: inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100;
+  box-shadow: inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100; */
 }
 </style>
