@@ -69,6 +69,10 @@ const followtip = (e, drum) => {
   /* width: 100%; */
   /* text-align: center; */
 }
+#instr,
+#instr > *:hover {
+  cursor: not-allowed;
+}
 
 #icon {
   padding-top: 0.6rem;

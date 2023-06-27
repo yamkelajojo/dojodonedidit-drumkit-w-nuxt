@@ -1,13 +1,67 @@
 <template>
   <div class="keyboard">
-    <div v-for="drum in drums" :key="drum.id" class="button">
+    <div
+      v-for="drum in drums"
+      :key="drum.id"
+      :data-key="drum.keyTitle"
+      class="button"
+      @click="handleClick($event, drum.keyTitle)"
+    >
       <p>{{ drum.keyTitle.toUpperCase() }}</p>
     </div>
   </div>
+
+  <audio
+    v-for="drum in drums"
+    :key="drum.id"
+    :data-key="drum.keyTitle"
+    :src="drum.url"
+  ></audio>
 </template>
 
 <script setup>
 const { drums } = defineProps(["drums"]);
+
+let pressed = ref(false);
+
+const handleClick = (e, keyTitle) => {
+  const audio = document.querySelector(`audio[data-key="${keyTitle}"]`);
+
+  if (!audio) return; //stops function from running all together
+  audio.currentTime = 0; //rewind it to the start before it starts playing
+  audio.play();
+};
+
+const handleKeyDown = (e) => {
+  const audio = document.querySelector(`audio[data-key="${e.key}"]`);
+  const button = document.querySelector(`div[data-key="${e.key}"].button`);
+
+  if (!audio) return; //stops function from running all together
+  audio.currentTime = 0; //rewind it to the start before it starts playing
+  audio.play();
+
+  button.style.top = "10px";
+  button.style.backgroundColor = "#f78900";
+  button.style.webkitBoxShadow =
+    "inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100";
+  button.style.mozBoxShadow = "inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100";
+  button.style.boxShadow = "inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100";
+};
+
+const handleKeyUp = (e) => {
+  const button = document.querySelector(`div[data-key="${e.key}"].button`);
+  button.style.top = "";
+  button.style.backgroundColor = "";
+  button.style.webkitBoxShadow = "";
+  button.style.mozBoxShadow = "";
+  button.style.boxShadow = "";
+};
+
+//onMounted hook is used to ensure that the window is ready before accessing its value and attaching the keydown event listener
+onMounted(() => {
+  window.addEventListener("keydown", handleKeyDown);
+  window.addEventListener("keyup", handleKeyUp);
+});
 </script>
 
 <style scoped>
@@ -29,6 +83,9 @@ const { drums } = defineProps(["drums"]);
   position: relative;
   display: inline-block;
   margin: 10px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .button p {
