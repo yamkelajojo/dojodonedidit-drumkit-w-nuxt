@@ -5,6 +5,7 @@
       <div
         v-for="drum in drums"
         :key="drum.id"
+        :data-key="drum.keyTitle"
         @mouseenter="toolTipOn = true"
         @mousemove="followtip($event, drum)"
         @mouseleave="toolTipOn = false"
@@ -49,6 +50,33 @@ const followtip = (e, drum) => {
   tooltip.value.style.left = x - 120 + "px";
   tooltip.value.style.top = y - 280 + "px";
 };
+
+const handleKeyDown = (e) => {
+  const soundSection = document.querySelector(`div[data-key="${e.key}"]#instr`);
+  soundSection.classList.add("playing");
+};
+
+const handleKeyUp = (e) => {
+  const soundSection = document.querySelector(`div[data-key="${e.key}"]#instr`);
+};
+
+//to stop animation overlapping/for ending transition overlap
+const transitionEnd = () => {
+  const soundSections = document.querySelectorAll("#instr");
+  soundSections.forEach((soundSec) =>
+    soundSec.addEventListener("transitionend", removeTransition)
+  );
+};
+
+const removeTransition = (e) => {
+  console.log(e);
+};
+
+onMounted(() => {
+  window.addEventListener("keydown", handleKeyDown);
+  window.addEventListener("keyup", handleKeyUp);
+  transitionEnd();
+});
 </script>
 
 <style scoped>
@@ -57,6 +85,7 @@ const followtip = (e, drum) => {
   justify-content: space-around;
   gap: 0.6rem;
   border-right: 2px solid #3f3f3fb0;
+  transition: all 2s;
   /* border-right: 2px solid #454545d7; */
 }
 
@@ -126,5 +155,10 @@ const followtip = (e, drum) => {
 
 #category {
   font-size: 0.4rem;
+}
+
+.playing {
+  transform: scale(1.2);
+  background-color: #1f36a7a3;
 }
 </style>
