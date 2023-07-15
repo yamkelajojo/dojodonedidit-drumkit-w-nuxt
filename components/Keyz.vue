@@ -20,9 +20,12 @@
 </template>
 
 <script setup>
+// import { emit } from "process";
+
 const { drums } = defineProps(["drums"]);
 
 let pressed = ref(false);
+const emit = defineEmits(["clickedKey"]);
 
 const handleClick = (e, keyTitle) => {
   const audio = document.querySelector(`audio[data-key="${keyTitle}"]`);
@@ -30,6 +33,8 @@ const handleClick = (e, keyTitle) => {
   if (!audio) return; //stops function from running all together
   audio.currentTime = 0; //rewind it to the start before it starts playing
   audio.play();
+  console.log(keyTitle);
+  emit("clickedKey", e);
 };
 
 const handleKeyDown = (e) => {
@@ -46,6 +51,9 @@ const handleKeyDown = (e) => {
     "inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100";
   button.style.mozBoxShadow = "inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100";
   button.style.boxShadow = "inset 3px 1px 0 #ffe5c4, inset 0 -3px 0 #915100";
+  // console.log(e);
+  // console.log(e.keyTitle);
+  // console.log(e.key);
 };
 
 const handleKeyUp = (e) => {

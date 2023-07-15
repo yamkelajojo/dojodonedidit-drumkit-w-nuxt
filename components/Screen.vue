@@ -10,7 +10,7 @@
         @mousemove="followtip($event, drum)"
         @mouseleave="toolTipOn = false"
         id="instr"
-        class="flex-cnt"
+        class="flex-cnt b-r"
       >
         <Icon :name="drum.icon" size="1.1rem" id="icon" />
         <p id="keyTitle" class="flex-cnt">{{ drum.keyTitle.toUpperCase() }}</p>
@@ -31,8 +31,9 @@
 <script setup>
 import { ref } from "vue";
 import getInstruments from "../composables/soundkeys";
+// import { emit } from "process";
 
-const { drums } = defineProps(["drums"]);
+const { drums, executedEvent } = defineProps(["drums", "executedEvent"]);
 const tooltip = ref(null);
 let toolTipOn = ref(false);
 let icon = ref(null);
@@ -50,10 +51,11 @@ const followtip = (e, drum) => {
   tooltip.value.style.left = x - 120 + "px";
   tooltip.value.style.top = y - 280 + "px";
 };
-
 const handleKeyDown = (e) => {
   const soundSection = document.querySelector(`div[data-key="${e.key}"]#instr`);
   soundSection.classList.add("playing");
+  soundSection.style.borderLeft = "none";
+  // soundSection.style.opacity = "0.1";
 };
 
 const handleKeyUp = (e) => {
@@ -69,8 +71,22 @@ const transitionEnd = () => {
 };
 
 const removeTransition = (e) => {
-  console.log(e);
+  if (e.propertyName !== "transform") return;
+  // console.log(e.target.classList);
+  e.target.classList.forEach(function (j) {
+    if (j == "playing") {
+      e.target.classList.remove(j);
+    }
+  });
 };
+
+watch(
+  () => executedEvent,
+  () => {
+    console.log("Nguye ke lo uExecuted kuScreen.vue");
+    console.log(executedEvent);
+  }
+);
 
 onMounted(() => {
   window.addEventListener("keydown", handleKeyDown);
@@ -84,8 +100,7 @@ onMounted(() => {
   flex-direction: column;
   justify-content: space-around;
   gap: 0.6rem;
-  border-right: 2px solid #3f3f3fb0;
-  transition: all 2s;
+  transition: all 0.2s;
   /* border-right: 2px solid #454545d7; */
 }
 
@@ -158,7 +173,12 @@ onMounted(() => {
 }
 
 .playing {
-  transform: scale(1.2);
-  background-color: #1f36a7a3;
+  border: none;
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.playing > * {
+  opacity: 1;
 }
 </style>

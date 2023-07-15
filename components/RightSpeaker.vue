@@ -1,5 +1,5 @@
 <template>
-  <div id="leftSpeaker" class="speaker flex-cnt">
+  <div id="rightSpeaker" class="speaker flex-cnt">
     <div id="tweeter"></div>
     <div id="sub"></div>
     <div id="sub"></div>
@@ -9,14 +9,15 @@
 <script setup></script>
 
 <style scoped>
-#leftSpeaker {
-  left: 13.5%;
+#rightSpeaker {
+  top: -8.7%;
+  left: 86.35%;
   opacity: 0.3;
 }
 
 #sub,
 #tweeter {
-  transform: rotateY(-30deg) rotateX(5deg);
+  transform: rotateY(-30deg) rotateX(-5deg);
 }
 
 #tweeter {

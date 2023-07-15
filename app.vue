@@ -1,9 +1,10 @@
 <template>
   <div id="studio" ref="studio">
     <!-- <LeftSpeaker /> -->
-    <Screen :drums="drums" />
-    <Keyz :drums="drums" />
-    <!-- <Keyboard /> -->
+    <RightSpeaker />
+    <Screen :drums="drums" :executedEvent="executedEvent" />
+    <Keyz :drums="drums" @clickedKey="takeAction" />
+    <!-- <Keyboard  /> -->
   </div>
   <audio
     v-for="drum in drums"
@@ -17,7 +18,16 @@
 import { ref } from "vue";
 import getInstruments from "/composables/soundkeys";
 
+let executedEvent = ref(null);
+
 const drums = getInstruments();
+const takeAction = (e) => {
+  console.log(
+    "The event we want from being emmitted from Keyz to app.vue \n ",
+    e
+  );
+  executedEvent.value = e;
+};
 </script>
 
 <style scoped>
