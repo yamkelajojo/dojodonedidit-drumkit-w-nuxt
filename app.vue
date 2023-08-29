@@ -25,6 +25,7 @@ watch(executedEvent, () => {
 });
 
 const drums = getInstruments();
+
 const takeAction = (e) => {
   console.log(
     "TakeAction() in app.vue \n Before Change: ",
