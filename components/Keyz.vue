@@ -20,6 +20,8 @@
 </template>
 
 <script setup>
+import { resolveObjectURL } from "buffer";
+
 // import { emit } from "process";
 
 const { drums } = defineProps(["drums"]);
@@ -33,8 +35,7 @@ const handleClick = (e, keyTitle) => {
   if (!audio) return; //stops function from running all together
   audio.currentTime = 0; //rewind it to the start before it starts playing
   audio.play();
-  console.log(keyTitle);
-  emit("clickedKey", e);
+  emit("clickedKey", keyTitle);
 };
 
 const handleKeyDown = (e) => {
@@ -58,11 +59,13 @@ const handleKeyDown = (e) => {
 
 const handleKeyUp = (e) => {
   const button = document.querySelector(`div[data-key="${e.key}"].button`);
-  button.style.top = "";
-  button.style.backgroundColor = "";
-  button.style.webkitBoxShadow = "";
-  button.style.mozBoxShadow = "";
-  button.style.boxShadow = "";
+  if (button !== null) {
+    button.style.top = "";
+    button.style.backgroundColor = "";
+    button.style.webkitBoxShadow = "";
+    button.style.mozBoxShadow = "";
+    button.style.boxShadow = "";
+  }
 };
 
 //onMounted hook is used to ensure that the window is ready before accessing its value and attaching the keydown event listener

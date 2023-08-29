@@ -34,6 +34,15 @@ import getInstruments from "../composables/soundkeys";
 // import { emit } from "process";
 
 const { drums, executedEvent } = defineProps(["drums", "executedEvent"]);
+
+console.log("executedEvent in Screen.vue: ", executedEvent);
+
+//whenever executedEvent value changes
+watch(executedEvent.value, () => {
+  console.log("WATCH: the one we want in Screen.vue");
+  console.log(executedEvent);
+});
+
 const tooltip = ref(null);
 let toolTipOn = ref(false);
 let icon = ref(null);
@@ -51,11 +60,15 @@ const followtip = (e, drum) => {
   tooltip.value.style.left = x - 120 + "px";
   tooltip.value.style.top = y - 280 + "px";
 };
+
 const handleKeyDown = (e) => {
   const soundSection = document.querySelector(`div[data-key="${e.key}"]#instr`);
-  soundSection.classList.add("playing");
-  soundSection.style.borderLeft = "none";
-  // soundSection.style.opacity = "0.1";
+  if (soundSection !== null) {
+    soundSection.classList.add("playing");
+    soundSection.style.borderLeft = "none";
+    // soundSection.style.opacity = "0.1";
+    console.log("In Screen keypress: " + executedEvent);
+  }
 };
 
 const handleKeyUp = (e) => {
@@ -79,14 +92,6 @@ const removeTransition = (e) => {
     }
   });
 };
-
-watch(
-  () => executedEvent,
-  () => {
-    console.log("Nguye ke lo uExecuted kuScreen.vue");
-    console.log(executedEvent);
-  }
-);
 
 onMounted(() => {
   window.addEventListener("keydown", handleKeyDown);

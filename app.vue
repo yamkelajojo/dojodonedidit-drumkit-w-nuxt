@@ -18,15 +18,21 @@
 import { ref } from "vue";
 import getInstruments from "/composables/soundkeys";
 
-let executedEvent = ref(null);
+const executedEvent = ref("Initial executedEvent");
+
+watch(executedEvent, () => {
+  console.log("WATCH ku app.vue: " + executedEvent.value);
+});
 
 const drums = getInstruments();
 const takeAction = (e) => {
   console.log(
-    "The event we want from being emmitted from Keyz to app.vue \n ",
-    e
+    "TakeAction() in app.vue \n Before Change: ",
+    executedEvent.value
   );
   executedEvent.value = e;
+  console.log("After Change: ", executedEvent.value);
+  // return executedEvent.value;
 };
 </script>
 
